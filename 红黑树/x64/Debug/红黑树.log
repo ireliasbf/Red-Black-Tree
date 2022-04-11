@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\abc47\source\repos\红黑树\红黑树\main.cpp(28,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\abc47\source\repos\红黑树\红黑树\RB_Tree.h(199): warning C4715: “RB_Tree<int>::Insert_balance”: 不是所有的控件路径都返回值
+C:\Users\abc47\source\repos\红黑树\红黑树\RB_Tree.h(270): warning C4715: “RB_Tree<int>::Delete_balance”: 不是所有的控件路径都返回值
+  红黑树.vcxproj -> C:\Users\abc47\source\repos\红黑树\x64\Debug\红黑树.exe
