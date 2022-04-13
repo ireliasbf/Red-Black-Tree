@@ -1,12 +1,13 @@
 #include<iostream>
 #include<queue>
+#include<ctime>
 #include"RB_Tree.h"
 #define T int
 using namespace std;
 void search(RB_Tree<T> tree);
 int main() {
 	RB_Tree<T> tree;
-	vector<T> nums(10);
+	vector<T> nums(100);
 	for (int i = 0; i < nums.size(); ++i) nums[i] = i+1;
 	for (int i = 0; i < nums.size(); i++) {
 		tree.Insert(nums[i]);
@@ -16,7 +17,7 @@ int main() {
 		tree.Delete(delnums[i]);
 	}
 	search(tree);
-	cout << tree.size();
+	cout << double(clock()) / CLOCKS_PER_SEC;
 }
 
 void search(RB_Tree<T> tree) {

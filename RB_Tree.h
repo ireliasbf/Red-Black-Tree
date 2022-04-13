@@ -196,6 +196,7 @@ RB_Tree_Node<T>* RB_Tree<T>::Insert_balance(RB_Tree_Node<T>* node) {
 		right_rotation(P);
 		return Insert_balance(P);
 	}
+	return nullptr;
 }
 
 template<typename T>//因删除导致红黑树不平衡时用此函数平衡红黑树
@@ -267,6 +268,7 @@ RB_Tree_Node<T>* RB_Tree<T>::Delete_balance(RB_Tree_Node<T>* node,char flag) {
 			Delete_balance(P, flag);
 		}
 	}
+	return nullptr;
 }
 
 template<typename T>//以传入结点为支点左旋
@@ -275,7 +277,10 @@ void RB_Tree<T>::left_rotation(RB_Tree_Node<T>* node) {
 	RB_Tree_Node<T>* P = GP->right;
 	RB_Tree_Node<T>* N = P->left;
 	if (GP->father) {//如果祖父结点不是根节点，需要把父节点连到祖父节点的父节点上
-		GP->father->right = P;
+		if (GP == GP->father->right)
+			GP->father->right = P;
+		else
+			GP->father->left = P;
 		P->father = GP->father;
 	}
 	else {//如果祖父节点是根节点，则把父节点设为根结点
@@ -294,7 +299,10 @@ void RB_Tree<T>::right_rotation(RB_Tree_Node<T>* node) {
 	RB_Tree_Node<T>* P = GP->left;
 	RB_Tree_Node<T>* N = P->right;
 	if (GP->father) {//如果祖父结点不是根节点，需要把父节点连到祖父节点的父节点上
-		GP->father->left = P;
+		if (GP == GP->father->right)
+			GP->father->right = P;
+		else
+			GP->father->left = P;
 		P->father = GP->father;
 	}
 	else {//如果祖父节点是根节点，则把父节点设为根结点
